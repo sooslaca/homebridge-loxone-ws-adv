@@ -21,6 +21,8 @@ module.exports = homebridge => {
         Utility.addSupportTo(ItemFactory.Dimmer, ItemFactory.AbstractItem);
         Utility.addSupportTo(ItemFactory.Switch, ItemFactory.AbstractItem);
         Utility.addSupportTo(ItemFactory.Jalousie, ItemFactory.AbstractItem);
+        Utility.addSupportTo(ItemFactory.MotionSensor, ItemFactory.AbstractItem);
+        Utility.addSupportTo(ItemFactory.Trigger, ItemFactory.AbstractItem);
     homebridge.registerPlatform("homebridge-loxoneWs", "LoxoneWs", LoxPlatform);
 };
 

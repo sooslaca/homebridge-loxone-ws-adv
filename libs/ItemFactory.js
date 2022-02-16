@@ -7,6 +7,8 @@ moduleexports.TemperatureSensor = require('../items/TemperatureSensorItem.js');
 moduleexports.Switch = require('../items/SwitchItem.js');
 moduleexports.Outlet = require('../items/Outlet.js');
 moduleexports.Dimmer = require('../items/DimmerItem.js');
+moduleexports.MotionSensor = require('../items/MotionSensorItem.js');
+moduleexports.Trigger = require('../items/TriggerItem.js');
 
 moduleexports.Factory = function(LoxPlatform, homebridge) {
     this.platform = LoxPlatform;
@@ -71,9 +73,14 @@ moduleexports.Factory.prototype.checkCustomAttrs = (factory, itemId, platform, c
     if (item.name.includes('Temperat')) {
         item.type = "TemperatureSensor";
 
-    } if (item.name.includes('Steckdose')) {
+    } else if (item.name.includes('Steckdose')) {
         item.type = "Outlet";
-
+    } else if (item.name.startsWith('Motion')) {
+        item.type = "MotionSensor";
+    } else if (item.name.startsWith('Trigger')) {
+        item.type = "Trigger";
+    } else if (item.name.startsWith('Doorbell')) {
+        item.type = "Doorbell";
     }
 
     item.manufacturer = "Loxone";
